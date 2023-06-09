@@ -1,0 +1,7 @@
+.ref-style{
+    border-radius: 5px;
+    border: 1px solid #d3d3d3;
+    width: 100%;
+    padding: 0.45rem 0.9rem;
+    display: inline-block;
+}
