@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Sabio.Models;
-using Sabio.Models.Domain;
-using Sabio.Models.Requests.Reference;
+using Interrogas.Models;
+using Interrogas.Models.Domain;
+using Interrogas.Models.Requests.Reference;
 using System;
 using System.Collections.Generic;
 using System.Linq;
