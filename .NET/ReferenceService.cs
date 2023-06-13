@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Sabio.Data;
-using Sabio.Data.Providers;
-using Sabio.Models;
-using Sabio.Models.Domain;
-using Sabio.Models.Domain.LookUps;
-using Sabio.Models.Requests.Reference;
-using Sabio.Services.Interfaces;
+using Interrogas.Data;
+using Interrogas.Data.Providers;
+using Interrogas.Models;
+using Interrogas.Models.Domain;
+using Interrogas.Models.Domain.LookUps;
+using Interrogas.Models.Requests.Reference;
+using Interrogas.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,7 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sabio.Services
+namespace Interrogas.Services
 {
     public class ReferenceService : IReferenceService
     {
