@@ -1,15 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Sabio.Models;
-using Sabio.Models.Domain;
-using Sabio.Models.Requests.Reference;
-using Sabio.Services;
-using Sabio.Services.Interfaces;
-using Sabio.Web.Controllers;
-using Sabio.Web.Models.Responses;
+using Interrogas.Models;
+using Interrogas.Models.Domain;
+using Interrogas.Models.Requests.Reference;
+using Interrogas.Services;
+using Interrogas.Services.Interfaces;
+using Interrogas.Web.Controllers;
+using Interrogas.Web.Models.Responses;
 using System;
 
-namespace Sabio.Web.Api.Controllers
+namespace Interrogas.Web.Api.Controllers
 {
     [Route("api/references")]
     [ApiController]
