@@ -1,4 +1,4 @@
-﻿using Sabio.Models.Domain.LookUps;
+﻿using Interrogas.Models.Domain.LookUps;
 using System;
 using System.Collections.Generic;
 using System.Linq;
