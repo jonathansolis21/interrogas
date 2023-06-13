@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sabio.Models.Requests.Reference
+namespace Interrogas.Models.Requests.Reference
 {
 	public class ReferenceUpdateRequest : ReferenceAddRequest, IModelIdentifier
     {
