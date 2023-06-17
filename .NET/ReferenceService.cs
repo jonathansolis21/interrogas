@@ -1,4 +1,3 @@
-
 public class ReferenceService : IReferenceService
 {
     IDataProvider _data = null;
