@@ -1,15 +1,3 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Interrogas.Models;
-using Interrogas.Models.Domain;
-using Interrogas.Models.Requests.Reference;
-using Interrogas.Services;
-using Interrogas.Services.Interfaces;
-using Interrogas.Web.Controllers;
-using Interrogas.Web.Models.Responses;
-using System;
-
-namespace Interrogas.Web.Api.Controllers
 {
     [Route("api/references")]
     [ApiController]
