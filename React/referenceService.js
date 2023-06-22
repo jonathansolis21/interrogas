@@ -1,8 +1,6 @@
 import axios from 'axios';
 import * as helper from './serviceHelpers';
 import { API_HOST_PREFIX } from './serviceHelpers';
-import logger from 'sabio-debug';
-const _logger = logger.extend('ReferencesService');
 const endpoint = `${API_HOST_PREFIX}/api/references`;
 
 const getReferences = (pageIndex, pageSize) => { 
@@ -13,7 +11,6 @@ const getReferences = (pageIndex, pageSize) => {
         crossdomain: true,
         headers: { 'Content-Type': 'application/json' },
     };
-    _logger('from getreferences', config.url); 
     return axios(config).then(helper.onGlobalSuccess);
 };
 
