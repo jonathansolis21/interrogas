@@ -3,31 +3,25 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Row, Col, Card, Button } from 'react-bootstrap';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import logger from 'sabio-debug';
 import * as referenceService from '../../services/referenceService';
 import RefTitle from './ReferencesTitle';
 import Table from './ReferencesTable';
 import Swal from 'sweetalert2';
 
-const _logger = logger.extend('References');
-
 const References = () => {
     const [referenceData, setReferenceData] = useState([]);
     const navigate = useNavigate();
-    false && logger(navigate);
 
     useEffect(() => {
         referenceService.getReferences(0, 100).then(onGetReferenceSuccess).catch(onGetReferenceError);
     }, []);
 
     const onGetReferenceSuccess = (response) => {
-        _logger('onGetReferenceSuccess', response);
         const refGet = response.item.pagedItems;
         setReferenceData(refGet);
     };
 
     const onGetReferenceError = (err) => {
-        _logger('onGetReferenceError', err);
     };
 
     const StatusColumn = ({ row }) => {
@@ -75,23 +69,18 @@ const References = () => {
         });
         const onDeleteRefSuccess = (success) => {
             Swal.fire('Removed!', 'The status has successfully been changed.', 'success');
-            _logger(success);
         };
         const onDeleteRefError = (err) => {
-            _logger('The operation has failed. Please try again.', err);
+            return 'The operation has failed. Please try again.';
         };
     };
 
     const onUpdate = (tableProps) => {
-        _logger('tableProps from onUpdate', tableProps);
         const stateForTransport = { type: 'REFRENCES_VIEW', payload: tableProps.row.original };
-        _logger('stateForTransport is:', stateForTransport);
         navigate(`/references/update/${tableProps.row.original.id}`, { state: stateForTransport });
     };
 
     const ActionColumn = (tableProps, dataTable) => {
-        _logger('tableProps in ActionColumn', tableProps);
-        _logger('ActionColumn passing dataTable', dataTable);
         return (
             <React.Fragment>
                 <Button
