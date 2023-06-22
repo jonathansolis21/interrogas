@@ -11,9 +11,6 @@ import {
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import RefPagination from './ReferencesPagination';
-import debug from 'sabio-debug';
-
-const _logger = debug.extend('ReferencesTable');
 
 const GlobalFilter = ({ preGlobalFilteredRows, globalFilter, setGlobalFilter, searchBoxClass }) => {
     const count = preGlobalFilteredRows.length;
@@ -71,7 +68,6 @@ IndeterminateCheckbox.propTypes = {
 };
 
 const Table = (props) => {
-    _logger('props from ReferencesTable', props);
     const isSearchable = props['isSearchable'] || false;
     const isSortable = props['isSortable'] || false;
     const pagination = props['pagination'] || false;
@@ -157,10 +153,6 @@ const Table = (props) => {
         theadClass: PropTypes.string,
         sizePerPageList: PropTypes.number,
     };
-
-    _logger('datatable.page', dataTable.page);
-    _logger('datatable.rows', dataTable.rows);
-    _logger('just dataTable', dataTable);
 
     let rows = pagination ? dataTable.page : dataTable.rows;
 
