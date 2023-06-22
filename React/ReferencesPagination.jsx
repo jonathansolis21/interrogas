@@ -2,15 +2,8 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import debug from 'sabio-debug';
-
-const _logger = debug.extend('ReferencesPagination');
 
 const RefPagination = ({ tableProps, sizePerPageList }) => {
-    _logger('tableProps here', tableProps);
-    /**
-     * pagination count , index
-     */
     const [pageCount, setPageCount] = useState(0);
     const [pageIndex, setPageIndex] = useState(0);
 
@@ -19,9 +12,6 @@ const RefPagination = ({ tableProps, sizePerPageList }) => {
         setPageIndex(tableProps.state.pageIndex);
     }, [tableProps.pageCount, tableProps.state.pageIndex]);
 
-    /**
-     * get filter pages
-     */
     const filterPages = useCallback(
         (visiblePages) => {
             return visiblePages.filter((page) => page <= pageCount);
@@ -29,9 +19,6 @@ const RefPagination = ({ tableProps, sizePerPageList }) => {
         [pageCount]
     );
 
-    /**
-     * handle visible pages
-     */
     const getVisiblePages = useCallback(
         (page, total) => {
             if (total < 7) {
@@ -49,11 +36,6 @@ const RefPagination = ({ tableProps, sizePerPageList }) => {
         [filterPages]
     );
 
-    /**
-     * handle page change
-     * @param page - current page
-     * @returns
-     */
     const changePage = (page) => {
         const activePage = pageIndex + 1;
 
