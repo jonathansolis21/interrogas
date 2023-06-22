@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Row, Col, Card, Container } from 'react-bootstrap';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import debug from 'sabio-debug';
 import refFormSchema from './ReferencesSchema';
 import toastr from 'toastr';
 import 'toastr/build/toastr.css';
@@ -11,13 +10,10 @@ import { updateReference } from '../../services/referenceService';
 import PageTitle from './ReferencesTitle';
 import getLookUps from '../../services/lookUpsService';
 import './ref.css';
-const _logger = debug.extend('ReferenceUpdate');
 
 function ReferenceUpdate() {
     const briq = useLocation().state.payload;
     const location = useLocation();
-    _logger('useLocation().state.payload is returning:', briq);
-    _logger('useLocation by itself', location);
 
     const [statusTypeValues, setStatusValues] = useState([]);
     const [statesValues, setStatesValues] = useState([]);
@@ -43,13 +39,11 @@ function ReferenceUpdate() {
 
     const onUpdateSuccess = (response) => {
         toastr.success(`SUCCESS! Item has been updated.`);
-        _logger(response);
         window.location.replace('/references');
     };
 
     const onUpdateErr = (err) => {
         toastr.error('Update failed. Please check comments under each field to ensure proper data entry.');
-        _logger(err);
     };
 
     useEffect(() => {
@@ -57,8 +51,7 @@ function ReferenceUpdate() {
     }, []);
 
     const onTypesSuccess = (response) => {
-        _logger('Response Test', response);
-
+        
         setStatusValues((prevState) => {
             let copy = { ...prevState };
             copy = response.item.StatusTypes;
@@ -77,7 +70,6 @@ function ReferenceUpdate() {
     };
 
     const onTypesError = (error) => {
-        _logger(error);
     };
 
     const mapTypes = (values) => (
