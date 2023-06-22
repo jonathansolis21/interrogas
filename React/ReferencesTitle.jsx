@@ -1,12 +1,8 @@
 import React from 'react';
 import { Row, Col, Breadcrumb } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import debug from 'sabio-debug';
-const _logger = debug.extend('ReferencesTitle');
 
 const RefTitle = (props) => {
-    _logger(props, 'RefTitle props');
-
     return (
         <Row>
             <Col>
