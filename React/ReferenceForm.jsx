@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Row, Col, Card, Container } from 'react-bootstrap';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import debug from 'sabio-debug';
 import refFormSchema from './ReferencesSchema';
 import toastr from 'toastr';
 import 'toastr/build/toastr.css';
@@ -14,7 +13,6 @@ import getLookUps from '../../services/lookUpsService';
 import './ref.css';
 
 function ReferenceForm() {
-    const _logger = debug.extend('ReferenceForm');
 
     const [initialFormValues] = useState({
         date: '',
@@ -35,19 +33,16 @@ function ReferenceForm() {
     const location = useLocation();
 
     const submitForm = (values) => {
-        _logger('values from ReferenceForm', values);
         addReference(values).then(onAddRefSuccess).catch(onAddRefError);
     };
 
     const onAddRefSuccess = (data) => {
         toastr.success(`SUCCESS! Item added to table.`);
-        _logger(`The ID for your new Reference is ${data.item}`);
         window.location.replace('/references');
     };
 
     const onAddRefError = (err) => {
         toastr.error('The Reference creation has failed. Please try again.');
-        _logger(err);
     };
 
     useEffect(() => {
@@ -55,8 +50,6 @@ function ReferenceForm() {
     }, []);
 
     const onTypesSuccess = (response) => {
-        _logger('Response Test', response);
-
         setStatusValues((prevState) => {
             let copy = { ...prevState };
             copy = response.item.StatusTypes;
@@ -75,7 +68,6 @@ function ReferenceForm() {
     };
 
     const onTypesError = (error) => {
-        _logger(error);
     };
 
     const mapTypes = (values) => (
